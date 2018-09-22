@@ -6,14 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"  href="style.css">
+  
 </head>
 
 <body>
+    <div id="mySidenav" class="sidenav">     
+        <a id="view">View</a>
+        <a id="add">Add</a>
+        <a id="verify">Verify</a>
+        <a href="#">Update</a>
+        <a href="#">Delete</a>
+      </div>
+  <div class="top main">
+    <div id="addElements" style="display:none">
+        Name: <input type="text" id="name"> &nbsp;&nbsp;
+        Office Num: <input type="number" id="officenum"> &nbsp;&nbsp;  
+        Phone Num: <input type="tel" id="phonenum"> &nbsp;&nbsp;
+        <button id="addEmp">Add</button>
+    </div>
+    <div id="verifyElements" style="display:none">
+        Name: <input type="text" id="verifyname"> &nbsp;&nbsp;
+        
+        <button id="verifyEmp">Verify</button>
+    </div>
+  </div>    
+  <div class="content main ugly"></div>
   <script src="dom.js"></script>
   <script src="employeeList.js"></script>
-  <script src="app.js"></script>
-  
+  <script src="app.js"></script> 
 </body>
 
 

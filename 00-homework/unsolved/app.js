@@ -5,6 +5,12 @@ const displayEmployees = function (){
          
 }
 
+const clearTopElements = function(){
+    document.getElementById('addElements').style.display = 'none';
+    document.getElementById('verifyElements').style.display = 'none';
+    document.getElementById('updateElements').style.display = 'none';
+}
+
 const displayAddEmployee = function(){
     $('.content').empty();
     clearTopElements();
@@ -19,10 +25,21 @@ const displayVerifyEmployee = function(){
     render();
 }
 
-const clearTopElements = function(){
-    document.getElementById('addElements').style.display = 'none';
-    document.getElementById('verifyElements').style.display = 'none';
+const displayUpdateEmployee = function(){
+    $('.content').empty();
+    clearTopElements()
+    document.getElementById('updateElements').style.display = 'inline';
+    render();
 }
+
+const displayDeleteEmployee = function(){
+    $('.content').empty();
+    clearTopElements()
+    document.getElementById('deleteElements').style.display = 'inline';
+    render();
+}
+
+
 
 const render = function(){
     for (let index = 0; index < employeeList.length; index++) {
@@ -41,8 +58,8 @@ const addEmployee = function(){
     var employee = {};
     //replace this with the Id of the elements in addElements div
     employee.name = $('#name').val();
-    employee.officeNum = 5;
-    employee.phoneNum = "213-944-3332";
+    employee.officeNum = $('#officenum').val();
+    employee.phoneNum = $('#phonenum').val();
     employeeList.push(employee);
     displayEmployees();
 }
@@ -70,11 +87,31 @@ Array.prototype.indexOfObject = function arrayObjectIndexOf(property, value) {
     return -1;
 }
 
+const updateEmployee = function(){
+    var employee = {};
+    //replace this with the Id of the elements in addElements div
+    const i = employeeList.findIndex( e => e.name === $('#updateName').val())
+    employeeList[i].officeNum = $('#updateOfficenum').val();
+    employeeList[i].phoneNum = $('#updatePhonenum').val();
+    displayEmployees();
+
+}
+
+const deleteEmployee = function(){
+    var employee = {};
+    //replace this with the Id of the elements in addElements div
+    const i = employeeList.findIndex( e => e.name === $('#deleteName').val())
+    employeeList.splice(i, 1);
+    displayEmployees();
+}
+
 //displayEmployees();
 $("#view").on("click", displayEmployees); //display all employee
 $("#add").on("click", displayAddEmployee); //add an employee name, push into array
-$("#addEmp").on("click", addEmployee)
+$("#addEmp").on("click", addEmployee);
 $("#verify").on("click", displayVerifyEmployee);//verify if an employee is on the list
 $("#verifyEmp").on("click", verifyEmployee);//verify if an employee is on the list
-//$("#update").on("click"); //update employee info 
-//$("#delete").on("click");//delete employee name from list bracket notation
+$("#update").on("click", displayUpdateEmployee);
+$("#updateEmp").on("click", updateEmployee); //update employee info 
+$("#delete").on("click", displayDeleteEmployee);//delete employee name from list bracket notation
+$("deleteEmp").on("click", deleteEmployee);

@@ -9,7 +9,7 @@
   <link rel="stylesheet"  href="style.css">
   
 </head>
-
+<!--side navigator ids-->
 <body>
     <div id="mySidenav" class="sidenav">     
         <a id="view">View</a>
@@ -18,27 +18,33 @@
         <a id="update">Update</a>
         <a id="delete">Delete</a>
       </div>
-  
+ <!--displays all search fields--> 
       <div class="top main">
+    
+   <div id="displayElements" style="display:none">
+        
+    </div>
+
     <div id="addElements" style="display:none">
         Name: <input type="text" id="name"> &nbsp;&nbsp;
         Office Num: <input type="number" id="officenum"> &nbsp;&nbsp;  
         Phone Num: <input type="tel" id="phonenum"> &nbsp;&nbsp;
         <button id="addEmp">Add</button>
     </div>
-    
+<!--display none to clear field from prev nav and to activate related input field for this button-->
     <div id="verifyElements" style="display:none">
         Name: <input type="text" id="verifyname"> &nbsp;&nbsp;
         
         <button id="verifyEmp">Verify</button>
     </div>
-    
+<!--displays all search fields-->    
     <div id="updateElements" style="display:none">
         Name: <input type="text" id="updateName"> &nbsp;&nbsp;
         Office Num: <input type="number" id="updateOfficenum"> &nbsp;&nbsp;  
         Phone Num: <input type="tel" id="updatePhonenum"> &nbsp;&nbsp;
         <button id="updateEmp">Update</button>
     </div>
+<!--display none to clear field from prev nav and to activate related input field for this button-->
     <div id="deleteElements" style="display:none">
         Name: <input type="text" id="deleteName"> &nbsp;&nbsp;
         

@@ -22,7 +22,7 @@ body {
     color: #818181;
     display: block;
 }
-
+/*hover event color*/
 .sidenav a:hover {
     color: #f1f1f1;
 }

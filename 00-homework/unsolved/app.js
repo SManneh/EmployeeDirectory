@@ -66,6 +66,9 @@ const addEmployee = function () {
     employee.officeNum = $('#officenum').val();
     employee.phoneNum = $('#phonenum').val();
     employeeList.push(employee);
+    $('#name').val('');
+    $('#officenum').val('');
+    $('#phonenum').val('');
     displayEmployees();
     document.getElementById('addElements').style.display = 'inline';
    
@@ -95,21 +98,27 @@ const verifyEmployee = function () {
     else {
         $('.content').prepend("Yes");
     }
-
+    document.getElementById('verifyElements').style.display = 'inline';
 }
 
 
 //if input value === to any keys in the object, update the specific key in the object.
 const updateEmployee = function () {
-    let employee = {};
-    const i = employeeList.findIndex(e => e.name === $('#updateName').val())
-    employeeList[i].officeNum = $('#updateOfficenum').val();
-    employeeList[i].phoneNum = $('#updatePhonenum').val();
+    let name = $('#updateName').val();
+    let officeNum = $('#updateOfficenum').val();
+    let phoneNum = $('#updatePhonenum').val();
+
+    for ( let i = 0; i < employeeList.length; i++){
+        if (employeeList[i].name === name){
+        employeeList[i].officeNum = officeNum;
+        employeeList[i].phoneNum = phoneNum;
+     }
+    
     displayEmployees();
     document.getElementById('updateElements').style.display = 'inline';
 
 }
-
+}
 //if value inputed is equal to a name in employeelist, delete(splice)by 1.
 const deleteEmployee = function () {
     let employee = $('#deleteName').val();//pass the input value to id name
@@ -122,6 +131,7 @@ const deleteEmployee = function () {
         }
 
     }
+    $('#deleteName').val('');
     displayEmployees();
     document.getElementById('deleteElements').style.display = 'inline';
 }

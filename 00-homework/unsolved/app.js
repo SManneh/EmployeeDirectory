@@ -67,6 +67,20 @@ const addEmployee = function () {
     employee.phoneNum = $('#phonenum').val();
     employeeList.push(employee);
     displayEmployees();
+    document.getElementById('addElements').style.display = 'inline';
+   
+
+}
+
+//gets the index of a property of an object in the employee list, returns -1 if value does not equal to index of property
+//custom function/constructor that allows you to extend
+Array.prototype.indexOfObject = function arrayObjectIndexOf(property, value) {
+    for (let i = 0, len = this.length; i < len; i++) {
+        if (this[i][property] === value) {
+            return i;
+        }
+    }
+    return -1;
 }
 //
 const verifyEmployee = function () {
@@ -81,16 +95,9 @@ const verifyEmployee = function () {
     else {
         $('.content').prepend("Yes");
     }
+
 }
-//gets the index of an employee in the employee list, returns -1 if employee does not exist
-Array.prototype.indexOfObject = function arrayObjectIndexOf(property, value) {
-    for (let i = 0, len = this.length; i < len; i++) {
-        if (this[i][property] === value) {
-            return i;
-        }
-    }
-    return -1;
-}
+
 
 //if input value === to any keys in the object, update the specific key in the object.
 const updateEmployee = function () {
@@ -99,6 +106,7 @@ const updateEmployee = function () {
     employeeList[i].officeNum = $('#updateOfficenum').val();
     employeeList[i].phoneNum = $('#updatePhonenum').val();
     displayEmployees();
+    document.getElementById('updateElements').style.display = 'inline';
 
 }
 
@@ -115,6 +123,7 @@ const deleteEmployee = function () {
 
     }
     displayEmployees();
+    document.getElementById('deleteElements').style.display = 'inline';
 }
 
 //displayEmployees();
